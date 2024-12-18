@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Галерея зображень</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css">
+  <style>
+
+    ul.gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      list-style: none;
+      padding: 0;
+      margin: 0 auto;
+      justify-content: center;
+      max-width: 1000px;
+    }
+
+    .gallery-item {
+      cursor: pointer;
+      overflow: hidden; 
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .gallery-item img {
+      display: block;
+      width: 300px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 5px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.2); 
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); 
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align: center;">Галерея зображень</h1>
+  <ul class="gallery"></ul>
+
+  <script src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js"></script>
+  <script src="gallery.js"></script>
+</body>
+</html>
