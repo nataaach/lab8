@@ -10,10 +10,10 @@ const images = [
   { preview: './images/9.png', original: './images/9.png', description: 'Зображення 9' },
 ];
 
-// Знаходимо ul.gallery
+//ul.gallery
 const gallery = document.querySelector('.gallery');
 
-// Створюємо розмітку для галереї
+//розмітка для галереї
 const galleryMarkup = images
   .map(
     ({ preview, original, description }) =>
@@ -31,25 +31,22 @@ const galleryMarkup = images
 // Додаємо розмітку до галереї
 gallery.innerHTML = galleryMarkup;
 
-// Додаємо слухача подій для відкриття модального вікна
+
 gallery.addEventListener('click', event => {
-  event.preventDefault(); // Відключаємо стандартну поведінку
+  event.preventDefault();
   const { target } = event;
 
-  // Перевірка, що клік був по зображенню
   if (target.nodeName !== 'IMG') return;
 
   const originalImageSrc = target.dataset.original;
 
   // Створюємо модальне вікно з бібліотекою basicLightbox
   const instance = basicLightbox.create(`
-    <img src="${originalImageSrc}" alt="${target.alt}" style="max-width: 90%; max-height: 90%; border-radius: 5px;" />
+    <img src="${originalImageSrc}" alt="${target.alt}" style="max-width: 90%; max-height: 90%; border-radius: 5px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);" />
   `);
 
-  // Відкриваємо модальне вікно
   instance.show();
 
-  // Додаємо закриття модального вікна по клавіші Escape
   const onEscKeyPress = (e) => {
     if (e.code === 'Escape') {
       instance.close();
